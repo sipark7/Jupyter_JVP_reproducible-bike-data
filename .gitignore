@@ -103,3 +103,7 @@ ENV/
 # data
 freemont-data.csv
 
+# vim and editor docs
+*~
+*pylear
+
