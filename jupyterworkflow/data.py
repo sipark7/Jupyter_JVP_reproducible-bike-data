@@ -2,9 +2,9 @@ import os
 import pandas as pd
 from urllib.request import urlretrieve
 
-FREEMONT_URL = 'https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD'
+FREMONT_URL = 'https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD'
 
-def get_fremont_data(filename='freemont-data.csv', url=FREEMONT_URL, force_download=False):
+def get_fremont_data(filename='freemont-data.csv', url=FREMONT_URL, force_download=False):
     """Download and cache the freemont data
 
     Parameters
