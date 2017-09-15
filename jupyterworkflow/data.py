@@ -22,8 +22,14 @@ def get_fremont_data(filename='freemont-data.csv', url=FREMONT_URL, force_downlo
         The freemont bike bridge data
     """
     if force_download or not os.path.exists(filename):
-        urlretrieve(URL, 'freemont-data.csv')
-    data = pd.read_csv('freemont-data.csv', index_col='Date', parse_dates=True)
+        urlretrieve(URL, filename)
+   
+    data = pd.read_csv(filename, index_col='Date')
+    try:
+        data.index = pd.to_datetime(data.index, format='%m/%d/%Y %H:%M:%S %p')
+    except TypeError:
+        data.index = pd.to_datetime(data.index)
+    
     data.columns = ['West', 'East']
     data['Total'] = data['West'] + data['East']
     return data
