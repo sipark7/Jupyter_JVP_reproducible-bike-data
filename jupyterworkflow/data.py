@@ -26,7 +26,7 @@ def get_fremont_data(filename='freemont-data.csv', url=FREMONT_URL, force_downlo
    
     data = pd.read_csv(filename, index_col='Date')
     try:
-        data.index = pd.to_datetime(data.index, format='%m/%d/%Y %H:%M:%S %p')
+        data.index = pd.to_datetime(data.index, format='%m/%d/%Y %I:%M:%S %p')
     except TypeError:
         data.index = pd.to_datetime(data.index)
     
